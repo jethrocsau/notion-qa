@@ -4,10 +4,11 @@ from langchain.document_loaders import UnstructuredPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.chains import RetrievalQA
+from langchain.chains import RetrievalQA, ConversationChain, RetrievalQAWithSourcesChain
 from langchain import HuggingFaceHub,PromptTemplate, LLMChain
 from transformers import AutoTokenizer
 from langchain.memory import ConversationBufferMemory
+from bs4 import BeautifulSoup
 
 #Load config
 load_dotenv()
@@ -30,43 +31,49 @@ embeddings = HuggingFaceEmbeddings()
 docsearch = FAISS.from_documents(documents,embeddings)
 
 # Model selection
-repo_id = "gpt2"
-model = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature":1,"max_length":700})
+repo_id = "google/flan-t5-base"
+model = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature":1e-10})
 
 #Initialize memory
-#memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
-#Initialize chain
-template = """Questions: {question}
+### Simple LLM Chain
+#Defome prompt template & chain
+prompt_template = """Read the documents provided and answer the question below based on the information presented only:
 
-Talk me through your response.
-Answer: """
-prompt = PromptTemplate(template=template, input_variables=["question"])
+Talk me through your answer.
 
-#retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":2})
-#qa = RetrievalQA.from_llm(llm=model,chain_type="stuff",retriever=retriever, return_source_documents=True)
-llm_chain = LLMChain(
-    llm=model,
-    prompt=prompt
+Question: {question}
+
+Answer:"""
+prompt = PromptTemplate(
+    template=prompt_template, input_variables=["question"]
 )
 
-# Start conversation
-query = "What are the article names of these documents provided?"
-print(llm_chain(query))
+
+#Simple langchain init
+llm_chain = LLMChain(
+    llm=model,
+    prompt=prompt,
+    verbose = True  
+)
 
 
-for i in range(5):
-    query = input("Question: ")
-    print(llm_chain(query))
+#### Retrieval chain type
+#Defome prompt template & chain
 
+prompt_template = """Use the context below to write a 300 word reponse about the question asked below:
+    Context: {context}
+    Topic: {topic}
+    Blog post:"""
 
-#output = chain.run(input_documents=docs, question = query)
-#Test 
-#template = """: {question}
-#
-#Answer: Lets summarize only based on the inputs above."""
+prompt = PromptTemplate(
+    template=prompt_template, input_variables=["context", "topic"]
+)
 
-#prompt = PromptTemplate(template=template, input_variables=["question"])
-#llm_chain = LLMChain(prompt=prompt, llm=llm)
+#Init retrieval QA chain
+r_qa_chain = RetrievalQAWithSourcesChain.from_chain_type(llm=model, chain_type="map_reduce", retriever=docsearch.as_retriever())
 
-#rint(llm_chain.run(question))
+#run query
+query = "Where are you created?"
+r_qa_chain({"question": query}, return_only_outputs=False)
