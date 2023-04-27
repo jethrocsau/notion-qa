@@ -1,0 +1,59 @@
+﻿Title,Priority,Research Domain,Keywords,Summary,Key Quotes/Statistics,Source,Progress,Created time,Last edited time,Deadline
+A Comprehensive Real-Time Indoor Air-Quality Level Indicator,High,IAQ,"CO2, Indoor Air Quality, ML/AI","The document discusses the creation of a comprehensive real-time indoor air-quality level indicator. The proposed CIAQI, based on EMA, is found to be the most adaptive to the change of real-time air-quality, despite smoothing outliers well over other schemes (AVG and SMA). ","The results suggest that the proposed CIAQI (based on EMA) is the most adaptive to the change of real-time air-quality, despite smoothing outliers well over other schemes: AVG and SMA",Sustainability,Done,"April 24, 2023 3:01 PM","April 24, 2023 3:44 PM","April 26, 2023"
+Smart Real-Time Indoor Air Quality Sensing System and Analytics,Medium,,"CO2, Digital Twin, ML/AI, Real Time",,,,In progress,"April 24, 2023 11:37 AM","April 26, 2023 11:49 AM","April 26, 2023"
+How to assess classroom ventilation - Harvard,High,IAQ,,,,Harvard,Done,"April 4, 2023 6:15 PM","April 24, 2023 11:27 AM","April 14, 2023"
+"Estimation and analysis of ventilation rates in
+schools in Indian context: IAQ and Indoor
+Environmental Quality",High,IAQ,,,,,Planned,"April 4, 2023 6:15 PM","April 24, 2023 11:34 AM","April 26, 2023"
+The Relationships Between Classroom Air Quality and Children’s Performance in School,High,IAQ,"Academic Performance, CO2, Indoor Air Quality, Learning","The article is a systematic review of the impact of classroom air quality on children's academic performance. The study found that indoor air quality has a significant impact on students' performance in school. ","The analysis predicts that reducing CO2 concentration from 2,100 ppm to 900 ppm would improve the performance of psychological tests and school tasks by 12% with respect to the speed at which the tasks are performed and by 2% with respect to errors made
+
+Reducing the CO2 concentration from 2,400 ppm to 900 ppm would improve the performance of national tests and school-leaving examinationss by 5% and reducing CO2 from 4,200 ppm to 1,000 ppm would increase children’s daily attendance by 2.5%.",Science of The Total Environment Volume,Done,"April 4, 2023 6:17 PM","April 7, 2023 11:23 AM","April 9, 2023"
+2012 Measurements of CO2 Levels in a Classroom and Its Effect on the Performance,High,IAQ,,,,,Planned,"April 4, 2023 6:19 PM","April 24, 2023 11:34 AM","April 26, 2023"
+"Guidelines on ventilation,
+thermal comfort and indoor
+air quality in schools",High,ESG and Technical Standards,"CO2, D-School Wellness, Indoor Air Quality","This article provides guidelines for maintaining a comfortable and healthy indoor environment in schools. It covers standards for ventilation, thermal comfort, and indoor air quality.",,Educations & Skills Agency,In progress,"April 4, 2023 6:25 PM","April 24, 2023 5:17 PM","April 14, 2023"
+Letter to private schools on ventilation,High,ESG and Technical Standards,"CO2, D-School Wellness, Indoor Air Quality, Learning","The ""Letter to private schools on ventilation"" provides guidance and service specifications for a requirement tthat schools conduct proper ventilation assessments in accordance with EDB “Health Protection Measures for Schools” Guidelines. ","With the analysis of site inspection result, the engineering team shall be able to
+advise the School and the School Sponsoring Body (SSB) / School Management
+Committee (SMC) / Incorporated Management Committee (IMC) of the School
+of the followings: 
+• Condition of the existing ventilation system;
+• Fresh air supply status to different rooms in the School;
+• Air change rate of toilets;
+• Dead air zone / area;
+• Distance between fresh air intake and other sources of contamination; and
+• Proposed short-term modification/housekeeping proposal and long-term
+improvement plan.",HKGOV,Done,"April 4, 2023 6:29 PM","April 12, 2023 11:12 AM","April 14, 2023"
+"A Data-Driven Study on the Association of Classrooms' Indoor Air Quality, Thermal Environment, and Students' Academic Performance",High,IAQ,"Academic Performance, CO2, Indoor Air Quality, Learning","The article discusses the association between indoor air quality, thermal environment, and students' academic performance in classrooms from a study conducted in 220 classrooms in midwestern region of the United States. ","Selecting a tracer-gas method without first evaluating the type of ventilation system, occupant demographics and activities, and a detailed layout may lead to inaccurate estimates of ventilation rate.
+
+Seasonal ventilation rates in classrooms are the most significant IAQ factor that may be associated with students’ scores",ScienceDirect,Done,"April 4, 2023 6:32 PM","April 7, 2023 3:31 PM","April 9, 2023"
+"Housing , Plannin, and Lands Bureau - Technical Cicular on applying air ventilation assessments to major government projects",High,ESG and Technical Standards,,,,,In progress,"April 10, 2023 11:34 AM","April 24, 2023 5:19 PM","April 26, 2023"
+The Study of CO2 Concentration in a Classroom during the COVID19 Safety Measures,Medium,IAQ,,,,,Not started,"April 10, 2023 11:34 AM","April 10, 2023 11:37 AM",
+HKEX Appendix 27: ESG Reporting Guide,Low,ESG and Technical Standards,,,,,In progress,"April 10, 2023 11:33 AM","April 26, 2023 11:51 AM",
+Indoor Air Quality in London’s Schools,Medium,IAQ,,,,,Not started,"April 10, 2023 11:32 AM","April 10, 2023 11:37 AM",
+Airflow around Buildings,Low,IAQ,,,,,Not started,"April 10, 2023 11:31 AM","April 10, 2023 11:37 AM",
+Quality Assurance Manual: Wind Engineering Studies of Buildings,Low,ESG and Technical Standards,,,,,Planned,"April 10, 2023 11:30 AM","April 26, 2023 11:52 AM",
+"Ventilation, thermal comfort and indoor air quality in schools - updated guidance",Medium,ESG and Technical Standards,,,,,Not started,"April 10, 2023 11:30 AM","April 10, 2023 11:38 AM",
+Classrom and indoor CO2 Standards compared: A look around the world,Medium,IAQ,,,,,Not started,"April 10, 2023 11:27 AM","April 10, 2023 11:39 AM",
+We measured the CO2 Level in a Classroom. This is what we found out,Medium,IAQ,,,,,Not started,"April 10, 2023 11:26 AM","April 10, 2023 11:38 AM",
+How CO2 threatens well-being productivity and health at office work,Low,IAQ,,,,,Not started,"April 10, 2023 11:25 AM","April 10, 2023 11:38 AM",
+"CO2 in Schools: It doesnt kill the student, it may kill your grades",Medium,IAQ,,,,AirMex,Not started,"April 10, 2023 11:24 AM","April 10, 2023 11:38 AM",
+Enhancing Safety and Learning in Schools through Smart CO2 Monitors,Medium,IAQ,,,,,Not started,"April 10, 2023 11:22 AM","April 10, 2023 11:38 AM",
+Technical Guide for Air Ventilation Assessment for Developments in Hong Kong,Medium,ESG and Technical Standards,,,,,Not started,"April 10, 2023 11:20 AM","April 10, 2023 11:38 AM",
+Ventilation rates in California classrooms: Why many recent HVAC retrofits are not delivering sufficient ventilation,Medium,IAQ,,,,Elsevier,Not started,"April 10, 2023 11:16 AM","April 10, 2023 11:38 AM",
+The Impact of CO2 on Children’s Learning,Medium,IAQ,"Academic Performance, CO2, Indoor Air Quality, Learning",,,SAV Systems,Not started,"April 10, 2023 11:14 AM","April 10, 2023 11:15 AM",
+SDG Targets Overview,Low,ESG and Technical Standards,ESG,,,,In progress,"April 10, 2023 11:13 AM","April 26, 2023 11:51 AM","April 21, 2023"
+CO2 Concentration Monitoring Inside Educational Buildings as a Strategic Tool to Reduce Risk of Sars-CoV-2 Airbone Transmission,Medium,IAQ,,,,Elsevier,Not started,"April 10, 2023 11:11 AM","April 10, 2023 11:38 AM",
+"Analysis of concentration fluctuations in gas dispersion around high-rise building
+for different incident wind directions",Low,IAQ,,,,,Not started,"April 10, 2023 11:10 AM","April 10, 2023 11:38 AM",
+Agents in AI,Medium,AI/ML,"ChatGPT, ML/AI",,,GeeksforGeeks,Done,"April 10, 2023 11:05 AM","April 26, 2023 11:48 AM","April 14, 2023"
+IAQ Measurement in Hong Kong,High,IAQ,"CO2, Indoor Air Quality","Indoor Air Quality Measurement in Hong Kong contains research on the indoor air quality (IAQ) levels in Hong Kong, specifically focusing on IAQ elements & implications, measurements, recommended/guidance levels.",,HKUST,Done,"April 10, 2023 11:03 AM","April 24, 2023 5:49 PM","April 14, 2023"
+"Associations of Cognitive Function Scores with Carbon Dioxide, Ventilation,
+and Volatile Organic Compound Exposures in Office Workers",Low,IAQ,"CO2, Indoor Air Quality, Office",,,Environmental Health Perspectives,Not started,"April 10, 2023 11:01 AM","April 10, 2023 11:03 AM",
+Numerical and Experimental Study on the Indoor Climate in a Classroom with Mixing and Displacement Air Distribution Methods,High,IAQ,"CO2, D-School Wellness, Digital Twin, Indoor Air Quality","The article, ""Numerical and Experimental Study on the Indoor Climate in a Classroom with Mixing and Displacement Air Distribution Methods,"" focuses on the impact of different air distribution methods on the indoor climate of a classroom based on both computational fluid dynamic simulations and experimental studies. ","The results showed the CFD simulation can give very promising results
+with measured surface temperatures as boundary conditions. The CFD simulation is also capable of predicting thermal comfort conditions, the age of air, and ventilation effectiveness.",MDPI,Done,"April 10, 2023 10:59 AM","April 12, 2023 3:56 PM","April 14, 2023"
+"The Effect of CO2 Concentration on Children’s
+Well-Being during the Process of Learning",Medium,IAQ,"CO2, D-School Wellness, Learning",,,Energies,Not started,"April 10, 2023 10:49 AM","April 10, 2023 10:54 AM",
+Quantitative relationships between classroom CO2 concentration and learning in elementary schools,Medium,IAQ,"CO2, D-School Wellness, Learning",,,International Centre for Indoor Environment and Energy,Planned,"April 10, 2023 10:43 AM","April 26, 2023 11:48 AM","April 14, 2023"
+ChatGPT Gets Its Wolfram Superpowers,High,AI/ML,"ChatGPT, ML/AI, Wolfram","The article ""ChatGPT Gets Its Wolfram Superpowers"" by Stephen Wolfram discusses how the integration of Wolfram Alpha has enhanced the capabilities of ChatGPT.","In ChatGPT + Wolfram we’re now able to leverage the whole stack: from the pure “statistical neural net” of ChatGPT, through the “computationally anchored” natural language understanding of Wolfram|Alpha, to the whole computational language and computational knowledge of Wolfram Language",Stephen Wolfram,Done,"April 8, 2023 10:19 PM","April 10, 2023 10:33 AM","April 10, 2023"
+Predictive Digital Twins,High,"AI/ML, Digital Twin",Digital Twin,"A digital twin is an evolving virtual model that mirrors an individual physical asset throughout its lifecycle. Key to the digital twin concept is the ability to sense, collect, analyze, and learn from the asset’s data. To make digital twins a reality, many elements of the interdisciplinary field of computational science, including physics-based modeling and simulation, inverse problems, uncertainty quantification, and scientific machine learning, have an important role to play.
+In this work, we develop a probabilistic graphical model as a formal mathematical representation of a digital twin and its associated physical asset. We create an abstraction of the asset-twin system as a set of coupled dynamical systems, evolving over time through their respective state-spaces and interacting via observed data and control inputs. The abstraction is realized computationally as a dynamic decision network. Predictive capabilities are enabled by physics-based reduced-order models. We demonstrate how the approach is instantiated to create, update and deploy a structural digital twin of an unmanned aerial vehicle.",,EPFL,Done,"April 25, 2023 6:26 PM","April 25, 2023 8:33 PM","April 25, 2023"
