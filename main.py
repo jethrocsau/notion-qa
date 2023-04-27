@@ -20,7 +20,7 @@ for loader in loaders:
     documents.extend(loader.load())
 
 #split text
-text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=250)
+text_splitter = CharacterTextSplitter(chunk_size=200, chunk_overlap=50)
 documents = text_splitter.split_documents(documents)
 
 # load embeddings
@@ -30,25 +30,34 @@ embeddings = HuggingFaceEmbeddings()
 docsearch = FAISS.from_documents(documents,embeddings)
 
 # Model selection
-repo_id = "google/flan-t5-xl"
-model = HuggingFaceHub(repo_id=repo_id, model_kwargs={"max_length":500})
+repo_id = "gpt2"
+model = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature":1,"max_length":700})
 
 #Initialize memory
-memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+#memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 #Initialize chain
-retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":2})
-qa = RetrievalQA.from_llm(llm=model,chain_type="stuff",retriever=retriever, return_source_documents=True)
+template = """Questions: {question}
+
+Talk me through your response.
+Answer: """
+prompt = PromptTemplate(template=template, input_variables=["question"])
+
+#retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":2})
+#qa = RetrievalQA.from_llm(llm=model,chain_type="stuff",retriever=retriever, return_source_documents=True)
+llm_chain = LLMChain(
+    llm=model,
+    prompt=prompt
+)
 
 # Start conversation
 query = "What are the article names of these documents provided?"
-result = qa({"question": query})
-print(result["answer"])
+print(llm_chain(query))
+
 
 for i in range(5):
     query = input("Question: ")
-    result = qa({"question": query})
-    print(result["answer"])
+    print(llm_chain(query))
 
 
 #output = chain.run(input_documents=docs, question = query)
