@@ -63,7 +63,7 @@ chain_1 = LLMChain(
 #### Retrieval chain type
 #Defome prompt template & chain
 
-prompt_template_2 = """Use the context below to write a 300 word answer to the question asked below. Anchor any statistics and facts only on the context provided.:
+prompt_template_2 = """Use the context below to answer the question asked. Anchor any statistics and facts only on the context provided.:
     CONTEXT: 
 
     {context}
@@ -73,7 +73,7 @@ prompt_template_2 = """Use the context below to write a 300 word answer to the q
     ANSWER:"""
 
 prompt_2 = PromptTemplate(
-    template=prompt_template, input_variables=["context", "question"]
+    template=prompt_template_2, input_variables=["context", "question"]
 )
 
 #RQA langchain init
@@ -94,7 +94,7 @@ def generate_context_answer(question):
     print(chain_2.apply(input))
 
 count =0
-while True or count <=5:
+while True or count >3:
     query = input("Question: ")
     generate_context_answer(query)
     count+=1
