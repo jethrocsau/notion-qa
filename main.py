@@ -19,10 +19,9 @@ loaders = [UnstructuredPDFLoader(os.path.join(pdf_dir,fn)) for fn in os.listdir(
 documents = []
 for loader in loaders:
     documents.extend(loader.load())
-print(documents)
 
 #split text
-text_splitter = CharacterTextSplitter(chunk_size=200, chunk_overlap=50)
+text_splitter = CharacterTextSplitter(chunk_size=250, chunk_overlap=50)
 documents = text_splitter.split_documents(documents)
 
 # load embeddings
@@ -36,7 +35,7 @@ repo_id = "google/flan-t5-base"
 model = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature":1e-10})
 
 #Initialize memory
-memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+#memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 ### Simple LLM Chain
 #Defome prompt template & chain
@@ -53,9 +52,10 @@ prompt = PromptTemplate(
 
 
 #Simple langchain init
-llm_chain = LLMChain(
+chain_1 = LLMChain(
     llm=model,
     prompt=prompt,
+    memory=ConversationBufferMemory(),
     verbose = True  
 )
 
@@ -63,18 +63,43 @@ llm_chain = LLMChain(
 #### Retrieval chain type
 #Defome prompt template & chain
 
-prompt_template = """Use the context below to write a 300 word reponse about the question asked below:
-    Context: {context}
-    Topic: {topic}
-    Blog post:"""
+prompt_template_2 = """Use the context below to write a 300 word answer to the question asked below. Anchor any statistics and facts only on the context provided.:
+    CONTEXT: 
 
-prompt = PromptTemplate(
-    template=prompt_template, input_variables=["context", "topic"]
+    {context}
+    
+    QUESTION: {question}
+    
+    ANSWER:"""
+
+prompt_2 = PromptTemplate(
+    template=prompt_template, input_variables=["context", "question"]
+)
+
+#RQA langchain init
+chain_2 = LLMChain(
+    llm=model,
+    prompt=prompt_2,
+    memory=ConversationBufferMemory(),
+    verbose = True  
 )
 
 #Init retrieval QA chain
-r_qa_chain = RetrievalQAWithSourcesChain.from_chain_type(llm=model, chain_type="map_reduce", retriever=docsearch.as_retriever())
+def generate_context_answer(question):
+    docs = docsearch.similarity_search(question, k=4)
+    context = ''
+    for i,doc in enumerate(docs):
+        context += "CONTEXT " + str(i) + ": " + doc.page_content + "\n\n"
+    input = [{"context":context,"question":question}]
+    print(chain_2.apply(input))
 
-#run query
-query = "Where are you created?"
-r_qa_chain({"question": query}, return_only_outputs=False)
+count =0
+while True or count <=5:
+    query = input("Question: ")
+    generate_context_answer(query)
+    count+=1
+
+#generate_context_answer("What has research articles said about CO2 levels and its impact on students?")
+
+#r_qa_chain = RetrievalQAWithSourcesChain.from_chain_type(llm=model, chain_type="map_reduce", retriever=docsearch.as_retriever())
+#r_qa_chain({"question": query}, return_only_outputs=False)
