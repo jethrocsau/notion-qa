@@ -4,7 +4,7 @@ from langchain.document_loaders import UnstructuredPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.chains import ConversationalRetrievalChain
+from langchain.chains import RetrievalQA
 from langchain import HuggingFaceHub,PromptTemplate, LLMChain
 from transformers import AutoTokenizer
 from langchain.memory import ConversationBufferMemory
@@ -30,21 +30,25 @@ embeddings = HuggingFaceEmbeddings()
 docsearch = FAISS.from_documents(documents,embeddings)
 
 # Model selection
-repo_id = "waifu-workshop/pygmalion-6b"
-llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"max_length":500})
+repo_id = "google/flan-t5-xl"
+model = HuggingFaceHub(repo_id=repo_id, model_kwargs={"max_length":500})
 
 #Initialize memory
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 #Initialize chain
-qa = ConversationalRetrievalChain.from_llm(llm,docsearch.as_retriever(), memory=memory)
+retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":2})
+qa = RetrievalQA.from_llm(llm=model,chain_type="stuff",retriever=retriever, return_source_documents=True)
 
 # Start conversation
-count = 0
 query = "What are the article names of these documents provided?"
 result = qa({"question": query})
 print(result["answer"])
-count+=1
+
+for i in range(5):
+    query = input("Question: ")
+    result = qa({"question": query})
+    print(result["answer"])
 
 
 #output = chain.run(input_documents=docs, question = query)
