@@ -19,6 +19,7 @@ loaders = [UnstructuredPDFLoader(os.path.join(pdf_dir,fn)) for fn in os.listdir(
 documents = []
 for loader in loaders:
     documents.extend(loader.load())
+print(documents)
 
 #split text
 text_splitter = CharacterTextSplitter(chunk_size=200, chunk_overlap=50)
