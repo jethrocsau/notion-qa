@@ -21,7 +21,7 @@ for loader in loaders:
     documents.extend(loader.load())
 
 #split text
-text_splitter = CharacterTextSplitter(chunk_size=250, chunk_overlap=50)
+text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=100)
 documents = text_splitter.split_documents(documents)
 
 # load embeddings
@@ -31,7 +31,7 @@ embeddings = HuggingFaceEmbeddings()
 docsearch = FAISS.from_documents(documents,embeddings)
 
 # Model selection
-repo_id = "google/flan-t5-base"
+repo_id = "google/flan-t5-xxl"
 model = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature":1e-10})
 
 #Initialize memory
@@ -94,7 +94,7 @@ def generate_context_answer(question):
     print(chain_2.apply(input))
 
 count =0
-while True or count >3:
+while True and count <5:
     query = input("Question: ")
     generate_context_answer(query)
     count+=1
@@ -103,3 +103,21 @@ while True or count >3:
 
 #r_qa_chain = RetrievalQAWithSourcesChain.from_chain_type(llm=model, chain_type="map_reduce", retriever=docsearch.as_retriever())
 #r_qa_chain({"question": query}, return_only_outputs=False)
+
+# Conversational Promp
+prompt_template_3 = """Below is a friendly conversation between a Human and an AI. The AI is talkative and explain its thought process out to the human.
+
+    CONVERSATION:
+    HUMAN: Hello!
+    AI: Hello how are you how can I help you?
+    HUMAN: Can you explain what is the meaning of life?
+    AI: 
+    """
+
+#RQA langchain init
+chain_2 = LLMChain(
+    llm=model,
+    prompt=prompt_2,
+    memory=ConversationBufferMemory(),
+    verbose = True  
+)
